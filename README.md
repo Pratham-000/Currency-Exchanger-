@@ -1,12 +1,68 @@
-# React + Vite
+# Currency Converter – Black & White Theme Styling Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This guide provides styling for a clean, modern currency converter with a professional black & white theme and bold typography.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔁 Swap Button (Professional Look)
 
-## Expanding the ESLint configuration
+```jsx
+<button
+  type="button"
+  onClick={swap}
+  className="px-5 py-2 rounded-md bg-gradient-to-r from-white/10 to-white/20 text-white font-bold border border-white/30 shadow-md hover:from-white/20 hover:to-white/30 hover:shadow-lg transition-all duration-300 ease-in-out"
+>
+  ⇄ Swap
+</button>
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Features:
+- Gradient background (`from-white/10 to-white/20`)
+- Bold white text with subtle hover effects
+- Rounded corners and soft shadows
+- Smooth transition animations
+
+---
+
+## 🧾 InputBox Styling
+
+```jsx
+<input
+  type="number"
+  value={amount}
+  onChange={(e) => onAmountChange?.(e.target.value)}
+  disabled={amountDisable}
+  className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 text-white font-bold placeholder-white/60 shadow-sm focus:outline-none focus:ring-2 focus:ring-white/50"
+/>
+
+<select
+  value={selectCurrency}
+  onChange={(e) => onCurrencyChange?.(e.target.value)}
+  className="ml-2 px-3 py-2 rounded-lg border border-white/20 bg-white/10 text-white font-bold shadow-sm focus:outline-none focus:ring-2 focus:ring-white/50"
+>
+  {currencyOptions.map((currency) => (
+    <option key={currency} value={currency} className="text-black">
+      {currency}
+    </option>
+  ))}
+</select>
+```
+
+---
+
+## 📦 Container Suggestion (for `App.jsx`)
+
+```jsx
+<div className="min-h-screen w-full flex justify-center items-center bg-black text-white font-bold">
+  {/* Inner converter UI */}
+</div>
+```
+
+---
+
+## 📝 Notes
+
+- Tailwind CSS is used for all styling.
+- All text is `font-bold` for clarity.
+- Backgrounds are semi-transparent white on black for elegance.
+- Use `backdrop-blur-sm` and `bg-white/20` for container elements to maintain contrast.
